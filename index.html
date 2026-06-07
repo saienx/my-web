@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>时光守护情书 H5</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<main id="app">
+  <section class="page active" id="page-loading">
+    <div class="brand-mini">BRAND</div>
+    <div class="float-wrap seal-wrap">
+      <img src="./assets/envelope_closed.png" class="hero envelope" alt="泛黄侨批信封" />
+    </div>
+    <p class="copy">有些话，漂洋过海，<br>需要被好好守护地说出来。</p>
+    <button class="primary home-open-btn" data-next="page-home" type="button">开启侨批</button>
+  </section>
+
+  <section class="page" id="page-home">
+    <div class="paper-card">
+      <img src="./assets/envelope_open.png" class="hero open" alt="尘封信纸" />
+      <div class="blur-letter">娘姆，见字如面……</div>
+    </div>
+    <button class="primary" data-next="page-sensitive" type="button">用守护填满这封信</button>
+  </section>
+
+  <section class="page scene-sea" id="page-sensitive">
+    <div class="scene-title">第一笔：治愈“敏感的思念”</div>
+    <div class="story-card">海浪颠簸，远洋的酸楚藏进牙齿细缝。</div>
+    <div class="tooth-stage" id="holdArea">
+      <img src="./assets/tooth_crack.png" id="sensitiveTooth" class="tooth" alt="裂痕牙齿" />
+      <div id="shield" class="shield"></div>
+      <div id="holdTip" class="hold-tip">按住守护</div>
+    </div>
+    <p class="hint" id="holdHint">长按牙齿，直到保护膜完全覆盖</p>
+    <div class="progress"><i id="holdBar"></i></div>
+    <p class="feedback hidden" id="sensitiveFeedback">你用抗敏的盾，封存了远航的酸楚。从此风浪再大，也刺痛不了等待的根。<br><small>抗敏成分即时封堵牙本质小管，舒缓敏感刺痛。</small></p>
+    <button class="primary hidden" id="toGum" data-next="page-gum" type="button">继续守护</button>
+  </section>
+
+  <section class="page scene-home" id="page-gum">
+    <div class="scene-title">第二笔：拥抱“脆弱的守候”</div>
+    <div class="gum-wrap">
+      <img src="./assets/tooth_gum.png" class="tooth" alt="牙龈守护" />
+      <canvas id="gumCanvas" width="760" height="760"></canvas>
+      <div id="brushTip" class="brush-tip">轻轻涂抹牙龈</div>
+    </div>
+    <p class="hint">沿着红色牙龈区域来回涂抹，完整覆盖后才会完成</p>
+    <div class="progress"><i id="wipeBar"></i></div>
+    <p class="feedback hidden" id="gumFeedback">你以护龈的柔，紧紧拥抱了数十年的孤独。思念再浓，也不再渗血成伤。<br><small>护龈配方修护牙龈屏障，给予坚韧守护。</small></p>
+    <button class="primary hidden" id="toPoster" data-next="page-sign" type="button">生成情书</button>
+  </section>
+
+  <section class="page" id="page-sign">
+    <div class="letter-input">
+      <h2>写下你的署名</h2>
+      <input id="signName" maxlength="8" placeholder="例如：阿孙" />
+      <button class="primary" id="makePoster" type="button">生成《时光守护情书》</button>
+    </div>
+  </section>
+
+  <section class="page poster-page" id="page-poster">
+    <header class="phone-head">
+      <button class="icon-btn" data-next="page-sign" type="button">‹</button>
+      <h1>时光守护情书</h1>
+      <button class="icon-btn" type="button">♪</button>
+    </header>
+    <article class="poster-card" id="posterHtml">
+      <div class="poster-bg-town"></div>
+      <section class="poster-paper">
+        <h2>时光守护情书</h2>
+        <p>娘姆：</p>
+        <p>我托海风寄这封信给你。</p>
+        <p>你说牙软，吃不得甜粿，那是等不到的酸楚。我封了一帖“抗敏的守护”在信里，让它抚平每一次冷热带来的刺痛。</p>
+        <p>你说牙缝渐宽，总爱渗血，那是思念太久的痕迹。我藏了一份“护龈的温柔”在字间，让它日夜抱着你，不再退缩。</p>
+        <p>你守了家一辈子，这次，换我们守护你的笑容。</p>
+        <p class="sign">——你的 <span id="posterName">阿孙</span></p>
+        <button class="poster-product" data-next="page-shop" type="button">抗敏护龈联合款牙膏</button>
+        <img src="./assets/tooth_protect.png" class="poster-tooth" alt="守护牙齿" />
+      </section>
+      <img src="./assets/toothpaste.png" class="poster-product-img" alt="抗敏护龈牙膏" />
+      <div class="poster-footer">BRAND　·　你守护所爱，我们守护你<br><small>本活动灵感源自侨批文化，向所有等待与守护致敬</small></div>
+    </article>
+    <div class="btn-row">
+      <button class="secondary" id="downloadPoster" type="button">保存海报</button>
+      <button class="primary" id="shareBtn" type="button">寄出我的情书</button>
+    </div>
+    <p class="share-text">我给娘姆写了一封能守护笑容的情书。你有想守护的人吗？→</p>
+  </section>
+
+  <section class="page shop-page" id="page-shop">
+    <div class="shop-shell real-product-page">
+      <header class="shop-head">
+        <button class="icon-btn" data-next="page-poster" type="button">‹</button>
+        <h1>京东商城</h1>
+        <div class="head-icons"><span class="cart">🛒<b>3</b></span><span>•••</span></div>
+      </header>
+
+      <section class="real-product-detail">
+        <img src="./assets/product_detail.jpg" alt="纳爱斯维C小苏打牙膏商品详情" />
+      </section>
+
+      <section class="real-buy-card">
+        <h2>纳爱斯益齿洁牙膏 维他鲜橙香</h2>
+        <p class="real-desc">养龈健齿 · 维C小苏打 · 去除牙渍 · 防蛀清新</p>
+        <div class="price">¥49.90 <em>活动价</em></div>
+        <div class="promise"><span>官方授权店</span><span>正品保障</span><span>安心购买</span></div>
+      </section>
+
+      <nav class="shop-nav">
+        <span>⌂<small>首页</small></span><span>☻<small>客服</small></span><span>☆<small>收藏</small></span>
+        <button class="secondary" type="button">加入购物车</button>
+        <button class="primary" type="button">立即购买</button>
+      </nav>
+    </div>
+  </section>
+</main>
+<script src="./script.js"></script>
+</body>
+</html>
